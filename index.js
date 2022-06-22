@@ -1,5 +1,5 @@
 const express = require("express");
-const { json } = require("express");
+const { json, urlencoded } = require("express");
 const flights = require("./controllers/flightController");
 const models = require("./models/Flight");
 const routes = require("./routes/flightRoute");
@@ -7,6 +7,7 @@ const routes = require("./routes/flightRoute");
 const app = express();
 
 app.use(json());
+app.use(urlencoded({extended: true}))
 
 app.use("/", routes);
 
